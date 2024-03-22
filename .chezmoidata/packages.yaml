@@ -14,7 +14,6 @@ packages:
         - "jo"
         - "jq"
         - "lame"
-        - "espanso"
         - "mas"
         - "neovim"
         - "node"
