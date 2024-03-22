@@ -1,0 +1,3 @@
+{{ range .packages.windows.shared.winget -}}
+winget install {{ . | quote }}
+{{ end -}}
