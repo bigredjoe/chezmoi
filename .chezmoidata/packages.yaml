@@ -3,7 +3,6 @@ packages:
     shared:
       brews:
         - "git"
-        - "mitmproxy"
         - "gitui"
         - "ffmpeg"
         - "ghostscript"
@@ -26,6 +25,7 @@ packages:
         - "python"
         - "fzf"
       casks:
+        - "mitmproxy"
         - "devdocs"
         - "sf-symbols"
         - "proxyman"

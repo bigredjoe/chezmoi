@@ -1,11 +1,12 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
+{{ $computerName := output "scutil" "--get" "ComputerName" | trim }}
+
 brew bundle --no-lock --file=/dev/stdin <<EOF
 tap "dtjm/taps"
 tap "dteoh/devdocs"
 tap "homebrew/bundle"
-tap 'homebrew/cask-drivers'
 tap "homebrew/cask-versions"
 tap "watr/formulae"
 tap 'azure/functions'
@@ -16,7 +17,7 @@ brew {{ . | quote }}
 {{ range .packages.darwin.shared.casks -}}
 cask {{ . | quote }}
 {{ end -}}
-{{- if ne .chezmoi.hostname "JOSEPHDOTY-MBP.local" }}
+{{- if ne $computerName "JOSEPHDOTY-MBP" }}
 {{ range .packages.darwin.personal.brews -}}
 brew {{ . | quote }}
 {{ end -}}
@@ -24,7 +25,7 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 {{- end }}
-{{- if eq .chezmoi.hostname "JOSEPHDOTY-MBP.local" }}
+{{- if eq $computerName "JOSEPHDOTY-MBP" }}
 {{ range .packages.darwin.work.brews -}}
 brew {{ . | quote }}
 {{ end -}}
@@ -34,7 +35,7 @@ cask {{ . | quote }}
 {{- end }}
 EOF
 
-{{- if eq .chezmoi.hostname "JOSEPHDOTY-MBP.local" }}
+{{- if eq $computerName "JOSEPHDOTY-MBP" }}
 function install_dotnet () {
     if test $(which dotnet)
     then
