@@ -1,0 +1,60 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+tap "dtjm/taps"
+tap "dteoh/devdocs"
+tap "homebrew/bundle"
+tap 'homebrew/cask-drivers'
+tap "homebrew/cask-versions"
+tap "watr/formulae"
+tap 'azure/functions'
+tap 'heroku/brew'
+{{ range .packages.darwin.shared.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.shared.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+{{- if ne .chezmoi.hostname "JOSEPHDOTY-MBP.local" }}
+{{ range .packages.darwin.personal.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.personal.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+{{- end }}
+{{- if eq .chezmoi.hostname "JOSEPHDOTY-MBP.local" }}
+{{ range .packages.darwin.work.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.work.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+{{- end }}
+EOF
+
+{{- if eq .chezmoi.hostname "JOSEPHDOTY-MBP.local" }}
+function install_dotnet () {
+    if test $(which dotnet)
+    then
+        # Install EF Core CLI
+        if test ! $(dotnet-ef)
+        then
+            dotnet tool install --global dotnet-ef
+        fi
+        if test ! $(dotnet-format)
+        then
+            dotnet tool update -g dotnet-format
+        fi
+        # Trusting dotnet dev cert
+        if test $(dotnet dev-certs https)
+        then
+            dotnet dev-certs https --trust
+        fi
+    fi
+}
+install_dotnet
+{{- end }}
+
+{{ end -}}
