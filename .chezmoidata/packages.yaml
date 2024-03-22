@@ -99,3 +99,7 @@ packages:
         - 881418622 # "Affinity Publisher"
         - 402383384 # "Base"
         - 528183797 # "Joystick Mapper"
+  windows:
+    shared:
+      winget:
+        - "SublimeHQ.SublimeText.4"
