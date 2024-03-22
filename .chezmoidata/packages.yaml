@@ -18,6 +18,7 @@ packages:
         - "mas"
         - "neovim"
         - "node"
+        - "devtoys"
         - "openssl"
         - "p7zip"
         - "pandoc"
