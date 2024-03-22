@@ -103,3 +103,5 @@ packages:
     shared:
       winget:
         - "SublimeHQ.SublimeText.4"
+        - "DevToys"
+        - "PowerToys"
