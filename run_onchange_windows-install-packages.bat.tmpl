@@ -1,3 +1,15 @@
 {{ range .packages.windows.shared.winget -}}
 winget install {{ . | quote }}
 {{ end -}}
+
+{{- if eq $computerName "JOSEPHDOTY88A6" }}
+{{ range .packages.windows.work.winget -}}
+winget install {{ . | quote }}
+{{ end -}}
+{{- end }}
+
+{{- if eq $computerName "jo-redux-pc" }}
+{{ range .packages.windows.personal.winget -}}
+winget install {{ . | quote }}
+{{ end -}}
+{{- end }}
