@@ -116,4 +116,7 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 echo "Save to disk instead of iCloud by default"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
+echo "Always show scrollbars"
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
 {{ end -}}
