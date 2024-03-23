@@ -124,6 +124,7 @@ packages:
         - "Cryptomator.Cryptomator"
         - "GuinpinSoft.MakeMKV"
         - "Anaconda.Anaconda3"
+        - "LizardByte.Sunshine"
     shared:
       winget:
         - "Obsidian.Obsidian"
@@ -145,7 +146,6 @@ packages:
         - "VideoLAN.VLC"
         - "WinDirStat.WinDirStat"
         - "OpenJS.NodeJS.LTS"
-        - "LizardByte.Sunshine"
         - "CoreyButler.NVMforWindows"
         - "SublimeHQ.SublimeText.4"
         - "DevToys"
