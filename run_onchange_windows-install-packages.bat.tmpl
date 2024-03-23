@@ -1,4 +1,7 @@
 {{ if eq .chezmoi.os "windows" -}}
+{{ range .packages.windows.shared.winget -}}
+winget install {{ . | quote }}
+{{ end -}}
 {{- if eq .chezmoi.hostname "JOSEPHDOTY88A6" }}
 {{ range .packages.windows.work.winget -}}
 winget install {{ . | quote }}
