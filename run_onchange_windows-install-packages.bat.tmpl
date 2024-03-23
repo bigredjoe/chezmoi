@@ -1,15 +1,13 @@
-{{ range .packages.windows.shared.winget -}}
-winget install {{ . | quote }}
-{{ end -}}
-
-{{- if eq $computerName "HOST-PLACEHOLDER-1" }}
+{{ if eq .chezmoi.os "windows" -}}
+{{- if eq .chezmoi.hostname "HOST-PLACEHOLDER-1" }}
 {{ range .packages.windows.work.winget -}}
 winget install {{ . | quote }}
 {{ end -}}
 {{- end }}
 
-{{- if eq $computerName "HOST-PLACEHOLDER-4" }}
+{{- if eq .chezmoi.hostname "HOST-PLACEHOLDER-4" }}
 {{ range .packages.windows.personal.winget -}}
 winget install {{ . | quote }}
 {{ end -}}
 {{- end }}
+{{ end -}}
