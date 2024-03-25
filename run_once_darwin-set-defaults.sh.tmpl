@@ -118,9 +118,4 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 echo "Always show scrollbars"
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
-
-echo "Show sound menubar"
-defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
-killall SystemUIServer
-
 {{ end -}}
