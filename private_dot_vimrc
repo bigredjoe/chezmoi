@@ -1,0 +1,124 @@
+let mapleader = ","
+
+" But, hitting gj will move the cursor down one displayed line. This will enable you to move around on a long sentence wrapped in multiple rows/lines.
+nnoremap j gj
+nnoremap k gk
+
+map gi :vsc Edit.GoToImplementation<CR>
+map gr :vsc Edit.FindAllReferences<CR>
+map gp :vsc Edit.PeekDefinition<CR>
+" break out of the tyranny of text! Navigate by method
+
+nnoremap <leader>m :vsc Edit.NextMethod<cr>
+
+nnoremap <leader>M :vsc Edit.PreviousMethod<cr>
+nnoremap R :vsc Refactor.Rename<cr>
+vnoremap <leader>tc :vsc Edit.ToggleLineComment<cr>
+nnoremap <leader>tc :vsc Edit.ToggleLineComment<cr>
+vnoremap <leader>uc :vsc Edit.UncommentSelection<cr>
+nnoremap <leader>uc :vsc Edit.UncommentSelection<cr>
+vnoremap <leader>cc :vsc Edit.CommentSelection<cr>
+nnoremap <leader>cc :vsc Edit.CommentSelection<cr>
+nnoremap <leader>fm :vsc Edit.FormatDocument<cr>
+nnoremap <leader>sw :vsc Edit.SurroundWith<cr>
+nnoremap <leader>sm :vsc Window.QuickLaunch<cr>
+vnoremap <leader>sw :vsc Edit.SurroundWith<cr>
+nnoremap <C-i> :vsc View.NavigateForward<cr>
+nnoremap <C-o> :vsc View.NavigateBackward<cr>
+nnoremap <leader>sis :vsc SolutionExplorer.SyncWithActiveDocument<cr>
+nnoremap <leader>r :vsc Debug.Start<cr>
+nnoremap <leader>sr :vsc Debug.StopDebugging<cr>
+nnoremap <leader>rt :vsc TestExplorer.RunAllTests<cr>
+nnoremap <leader>gtm :vsc Window.MovetoNavigationBar<cr><tab><tab>
+nnoremap <leader>co :vsc Edit.Copilot.TriggerInlineSuggestion<cr>
+nnoremap <leader>cop :vsc Edit.Copilot.Open<cr>
+
+" reselect pasted text
+nnoremap gp `[v`]
+
+
+" jump between compilation errors
+
+nnoremap <leader>e :vsc View.NextError<cr>
+
+nnoremap <leader>E :vsc View.PreviousError<cr>
+
+" testing and debugging
+
+nnoremap <leader>b :vsc Debug.ToggleBreakpoint<cr>
+
+
+
+" Surround simulating bindings
+
+nnoremap s) ciw(<C-r>")<Esc>
+
+nnoremap s] ciw[<C-r>"]<Esc>
+
+nnoremap s} ciw{<C-r>"}<Esc>
+
+nnoremap s> ciw<lt><C-r>"><Esc>
+
+nnoremap s" ciw"<C-r>""<Esc>
+
+nnoremap s' ciw'<C-r>"'<Esc>
+
+nnoremap sw) ciW(<C-r>")<Esc>
+
+nnoremap sw] ciW[<C-r>"]<Esc>
+
+nnoremap sw} ciW{<C-r>"}<Esc>
+
+nnoremap sw> ciW<lt><C-r>"><Esc>
+
+nnoremap sw" ciW"<C-r>""<Esc>
+
+nnoremap sw' ciW'<C-r>"'<Esc>
+
+
+
+" Surround delete bindings
+
+nnoremap ds) vi(dvhp
+
+nnoremap ds] vi[dvhp
+
+nnoremap ds} vi{dvhp
+
+nnoremap ds> vi<dvhp
+
+nnoremap ds" vi"dvhp
+
+nnoremap ds' vi'dvhp
+
+
+
+" Surround change bindings
+
+nnoremap cs"' vi"oh<Esc>msvi"l<Esc>cl'<Esc>`scl'<Esc>
+
+nnoremap cs'" vi'oh<Esc>msvi'l<Esc>cl"<Esc>`scl"<Esc>
+
+
+
+" Surround visual selected text
+
+vnoremap S" c"<C-r>""<Esc>
+
+vnoremap S' c"<C-r>"'<Esc>
+
+vnoremap S) c(<C-r>")<Esc>
+
+vnoremap S] c[<C-r>"]<Esc>
+
+vnoremap S} c{<C-r>"}<Esc>
+
+vnoremap S> c<lt><C-r>"><Esc>
+
+vnoremap S* c/*<C-r>"*/<Esc>
+
+"vnoremap St c<lt>div><CR><C-r>"<Esc>
+
+" Surround in div tag and edit tag
+
+vnoremap St c<lt>div><CR><C-r>"<Esc>`<lt>lcw
