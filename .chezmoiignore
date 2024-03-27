@@ -1,0 +1,3 @@
+{{- if ne .chezmoi.hostname "JOSEPHDOTY-MBP" }}
+work-mac-setup.md
+{{- end }}

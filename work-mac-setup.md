@@ -1,0 +1,1 @@
+- https://www.parallels.com/blogs/microsoft-sql-apple-silicon-docker-desktop/
