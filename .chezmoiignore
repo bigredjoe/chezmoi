@@ -1,3 +1,6 @@
 {{- if ne .chezmoi.hostname "JOSEPHDOTY-MBP" }}
 work-mac-setup.md
 {{- end }}
+{{ if ne .chezmoi.os "darwin" -}}
+setenv.sh
+{{ end -}}
