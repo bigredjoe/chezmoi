@@ -108,6 +108,7 @@ packages:
         - "Microsoft.AzureFunctionsCoreTools"
         - "Microsoft.AzureStorageExplorer"
         - "Microsoft.AzureDataStudio"
+        - "paolosalvatori.ServiceBusExplorer"
         - "Microsoft.AzureCosmosEmulator"
         - "Microsoft.AzureCLI"
     personal:
@@ -146,6 +147,7 @@ packages:
         - "Microsoft.VisualStudioCode"
         - "Microsoft.VisualStudioCode.CLI"
         - "Mozilla.Firefox"
+        - "Microsoft.SQLServerManagementStudio"
         - "Neovim.Neovim"
         - "voidtools.Everything"
         - "Telerik.Fiddler.Classic"
