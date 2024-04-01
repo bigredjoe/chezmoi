@@ -56,6 +56,11 @@ function install_dotnet () {
     fi
 }
 install_dotnet
+
+{{ range .packages.npm.work -}}
+npm install -g {{ . | quote }}
+{{ end -}}
+
 {{- end }}
 
 {{ end -}}

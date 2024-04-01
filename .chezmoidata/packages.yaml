@@ -73,6 +73,7 @@ packages:
     work:
       brews:
         - "azure-cli"
+        - "azure-functions-core-tools"
       casks:
     personal:
       brews:
@@ -112,6 +113,7 @@ packages:
         - "paolosalvatori.ServiceBusExplorer"
         - "Microsoft.AzureCosmosEmulator"
         - "Microsoft.AzureCLI"
+        - "Microsoft.Azure.FunctionsCoreTools"
     personal:
       winget:
         - "MullvadVPN.MullvadVPN"
@@ -163,4 +165,7 @@ packages:
         - "SublimeHQ.SublimeText.4"
         - "DevToys"
         - "QL-Win.QuickLook"
-        - "Microsoft.PowerToys"
+        - "Microsoft.PowerToys" 
+  npm:
+    work:
+      - "azurite"
