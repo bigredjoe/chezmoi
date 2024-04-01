@@ -6,6 +6,9 @@ winget install {{ . | quote }}
 {{ range .packages.windows.work.winget -}}
 winget install {{ . | quote }}
 {{ end -}}
+{{ range .packages.npm.work -}}
+npm install -g {{ . | quote }}
+{{ end -}}
 {{- end }}
 
 {{- if eq .chezmoi.hostname "jo-redux-pc" }}
