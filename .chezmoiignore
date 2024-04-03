@@ -2,5 +2,9 @@
 work-mac-setup.md
 {{- end }}
 {{ if ne .chezmoi.os "darwin" -}}
+.config/gitui/key_bindings.ron
 setenv.sh
+{{ end -}}
+{{ if ne .chezmoi.os "windows" -}}
+AppData/Roaming/gitui/key_bindings.ron
 {{ end -}}
