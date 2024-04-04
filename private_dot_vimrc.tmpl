@@ -4,6 +4,7 @@ let mapleader = ","
 nnoremap j gj
 nnoremap k gk
 
+{{ if eq .chezmoi.os "windows" -}}
 map gi :vsc Edit.GoToImplementation<CR>
 map gr :vsc Edit.FindAllReferences<CR>
 map gp :vsc Edit.PeekDefinition<CR>
@@ -46,7 +47,7 @@ nnoremap <leader>E :vsc View.PreviousError<cr>
 " testing and debugging
 
 nnoremap <leader>b :vsc Debug.ToggleBreakpoint<cr>
-
+{{ end -}}
 
 
 " Surround simulating bindings
