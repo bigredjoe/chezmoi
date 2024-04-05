@@ -75,6 +75,7 @@ packages:
         - "azure-cli"
         - "azure-functions-core-tools"
       casks:
+        - "azure-data-studio"
     personal:
       brews:
         - "yt-dlp"
