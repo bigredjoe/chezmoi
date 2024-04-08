@@ -6,3 +6,5 @@
 [user]
 	name = 'Joseph Doty'
 	email = {{ .email | quote }}
+[alias]
+    sync = "!f() { git stash; git pull; git stash pop; }; f"

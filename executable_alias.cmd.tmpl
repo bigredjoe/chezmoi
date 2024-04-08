@@ -6,7 +6,6 @@ DOSKEY home=cd %USERPROFILE%
 DOSKEY ps=powershell
 DOSKEY admin=powershell -Command "Start-Process cmd -Verb RunAs -WorkingDirectory $PWD"
 DOSKEY repos=cd %USERPROFILE%\dev
-DOSKEY gsp=git stash && git pull && git stash pop
 
 {{- if eq .chezmoi.hostname "JOSEPHDOTY88A6" }}
 DOSKEY hj=cd %USERPROFILE%\dev\HeavyJob
