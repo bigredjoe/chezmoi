@@ -1,0 +1,14 @@
+@echo off
+
+DOSKEY ls=dir
+DOSKEY evimrc=vim %USERPROFILE%\.vimrc
+DOSKEY home=cd %USERPROFILE%
+DOSKEY ps=powershell
+DOSKEY admin=powershell -Command "Start-Process cmd -Verb RunAs -WorkingDirectory $PWD"
+DOSKEY repos=cd %USERPROFILE%\dev
+
+{{- if eq .chezmoi.hostname "JOSEPHDOTY88A6" }}
+DOSKEY hj=cd %USERPROFILE%\dev\HeavyJob
+DOSKEY hjw=cd %USERPROFILE%\dev\HeavyJob\Web
+DOSKEY hjww=cd %USERPROFILE%\dev\HeavyJob\Web\JobManager.Web
+{{- end }}

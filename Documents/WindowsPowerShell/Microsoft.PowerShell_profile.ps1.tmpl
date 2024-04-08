@@ -1,0 +1,18 @@
+$userDirectory = $env:USERPROFILE
+{{- if eq .chezmoi.hostname "JOSEPHDOTY88A6" }}
+function HJDirectory { Set-Location "$userDirectory\dev\HeavyJob" }
+Set-Alias -Name hj -Value HJDirectory
+function HJWDirectory { Set-Location "$userDirectory\dev\HeavyJob\Web" }
+Set-Alias -Name hjw -Value HJWDirectory
+function HJWWDirectory { Set-Location "$userDirectory\dev\HeavyJob\Web\JobManager.Web" }
+Set-Alias -Name hjww -Value HJWWDirectory
+{{- end}}
+function HomeDirectory { Set-Location $env:USERPROFILE }
+Set-Alias -Name home -Value HomeDirectory
+function RunAsAdmin {
+    $currentDirectory = Get-Location
+    Start-Process powershell -ArgumentList "-NoExit", "-Command Set-Location '$currentDirectory'" -Verb RunAs
+}
+Set-Alias -Name admin -Value RunAsAdmin
+function ReposDirectory { Set-Location "$userDirectory\dev" }
+Set-Alias -Name repos -Value ReposDirectory
