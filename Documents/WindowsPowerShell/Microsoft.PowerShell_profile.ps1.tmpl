@@ -16,3 +16,11 @@ function RunAsAdmin {
 Set-Alias -Name admin -Value RunAsAdmin
 function ReposDirectory { Set-Location "$userDirectory\dev" }
 Set-Alias -Name repos -Value ReposDirectory
+
+function GitStashPullPop {
+    git stash
+    git pull
+    git stash pop
+}
+Set-Alias -Name gsp -Value GitStashPullPop
+
