@@ -7,6 +7,6 @@ setenv.sh
 {{ end -}}
 {{ if ne .chezmoi.os "windows" -}}
 alias.cmd
-Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
+Documents/WindowsPowerShell
 AppData/Roaming/gitui/key_bindings.ron
 {{ end -}}
