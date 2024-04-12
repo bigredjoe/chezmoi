@@ -1,2 +1,2 @@
 - https://www.parallels.com/blogs/microsoft-sql-apple-silicon-docker-desktop/
-- https://bluebanana-software.com/iyf/InYourFace.zip
+- Setup Dato https://sindresorhus.com/dato#trial
