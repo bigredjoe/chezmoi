@@ -51,6 +51,7 @@ packages:
         - "script-debugger"
         - "obsidian"
         - "vlc"
+        - "obs"
         - "sublime-text"
         - "imageoptim"
         - "microsoft-office"
@@ -137,6 +138,7 @@ packages:
     shared:
       winget:
         - "Git.Git"
+        - "OBSProject.OBSStudio"
         - "Obsidian.Obsidian"
         - "RustemMussabekov.Raindrop"
         - "Icons8.Lunacy"
