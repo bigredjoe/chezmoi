@@ -16,6 +16,7 @@ packages:
         - "jq"
         - "lame"
         - "mas"
+        - "motrix"
         - "neovim"
         - "node"
         - "openssl"
@@ -168,7 +169,7 @@ packages:
         - "SublimeHQ.SublimeText.4"
         - "DevToys"
         - "QL-Win.QuickLook"
-        - "Microsoft.PowerToys" 
+        - "Microsoft.PowerToys"
   npm:
     work:
       - "azurite"
