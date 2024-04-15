@@ -57,6 +57,8 @@ function install_dotnet () {
 }
 install_dotnet
 
+nvm install 20.11.1
+
 {{ range .packages.npm.work -}}
 npm install -g {{ . | quote }}
 {{ end -}}
