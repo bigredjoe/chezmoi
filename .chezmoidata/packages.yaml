@@ -165,7 +165,6 @@ packages:
         - "TheBrowserCompany.Arc"
         - "VideoLAN.VLC"
         - "WinDirStat.WinDirStat"
-        - "OpenJS.NodeJS.LTS"
         - "CoreyButler.NVMforWindows"
         - "SublimeHQ.SublimeText.4"
         - "DevToys"
