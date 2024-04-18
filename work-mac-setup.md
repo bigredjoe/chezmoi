@@ -1,2 +1,3 @@
 - https://www.parallels.com/blogs/microsoft-sql-apple-silicon-docker-desktop/
 - Setup Dato https://sindresorhus.com/dato#trial
+- Increase VM Ram to 16 gb
