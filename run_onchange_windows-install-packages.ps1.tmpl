@@ -2,6 +2,7 @@
 {{ range .packages.windows.shared.winget -}}
 winget install {{ . | quote }}
 {{ end -}}
+nvm install 20.11.1
 {{- if eq .chezmoi.hostname "JOSEPHDOTY88A6" }}
 {{ range .packages.windows.work.winget -}}
 winget install {{ . | quote }}
@@ -10,7 +11,6 @@ winget install {{ . | quote }}
 npm install -g {{ . | quote }}
 {{ end -}}
 {{- end }}
-
 {{- if eq .chezmoi.hostname "jo-redux-pc" }}
 {{ range .packages.windows.personal.winget -}}
 winget install {{ . | quote }}
