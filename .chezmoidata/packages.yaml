@@ -104,6 +104,7 @@ packages:
         - 881418622 # "Affinity Publisher"
         - 402383384 # "Base"
         - 528183797 # "Joystick Mapper"
+        - 1530751461 # Snippety
   windows:
     full-machine:
       winget:
