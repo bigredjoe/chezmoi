@@ -3,7 +3,7 @@
 winget install {{ . | quote }}
 {{ end -}}
 nvm install 20.11.1
-{{- if eq .chezmoi.hostname "JOSEPHDOTY88A6" }}
+{{- if eq .type "work" }}
 {{ range .packages.windows.work.winget -}}
 winget install {{ . | quote }}
 {{ end -}}
