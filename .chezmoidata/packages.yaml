@@ -153,7 +153,6 @@ packages:
         - "StephanDilly.gitui"
         - "Flameshot.Flameshot"
         - "GitHub.GitHubDesktop"
-        - "LM-Studio"
         - "Microsoft.VisualStudioCode"
         - "Microsoft.VisualStudioCode.CLI"
         - "Mozilla.Firefox"
