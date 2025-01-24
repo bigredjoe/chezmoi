@@ -163,7 +163,6 @@ packages:
         - "Telerik.Fiddler.Classic"
         - "ImageMagick.ImageMagick"
         - "Postman.Postman"
-        - "TheBrowserCompany.Arc"
         - "VideoLAN.VLC"
         - "WinDirStat.WinDirStat"
         - "CoreyButler.NVMforWindows"
