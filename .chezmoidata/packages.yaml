@@ -71,6 +71,7 @@ packages:
         - 488536386 # "Location Helper"
         - 1295203466 # "Microsoft Remote Desktop"
         - 497799835 # "Xcode"
+	- 1351639930 # GifSki
         - 498370702 # "RegExRX"
         - 1499181666 # "OwlOCR - Screenshot to Text"
     work:
