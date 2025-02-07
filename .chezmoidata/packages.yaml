@@ -49,6 +49,7 @@ packages:
         - "postman"
         - "visual-studio-code"
         - "github"
+        - "gifski"
         - "keyboard-maestro"
         - "script-debugger"
         - "obsidian"
