@@ -1,5 +1,5 @@
 $userDirectory = $env:USERPROFILE
-{{- if eq .chezmoi.hostname "JOSEPHDOTY88A6" }}
+{{- if eq .type "work" }}
 function HJDirectory { Set-Location "$userDirectory\dev\HeavyJob" }
 Set-Alias -Name hj -Value HJDirectory
 function HJWDirectory { Set-Location "$userDirectory\dev\HeavyJob\Web" }
@@ -16,3 +16,4 @@ function RunAsAdmin {
 Set-Alias -Name admin -Value RunAsAdmin
 function ReposDirectory { Set-Location "$userDirectory\dev" }
 Set-Alias -Name repos -Value ReposDirectory
+fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
