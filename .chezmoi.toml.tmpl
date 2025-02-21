@@ -1,0 +1,19 @@
+# This is a template for chezmoi configuration
+# It will be copied to ~/.config/chezmoi/chezmoi.toml if it doesn't exist
+
+[data]
+    name = "{{ promptString "What is your full name" }}"
+    email = "{{ promptString "What is your email" }}"
+    type = "{{ promptString "What type of machine is this (work/personal)" }}"
+
+[git]
+    autoCommit = true
+    autoPush = false
+
+[edit]
+    command = "code"
+    args = ["--wait"]
+
+[merge]
+    command = "code"
+    args = ["--wait", "--diff", "{{ "{{ .Destination }}" }}", "{{ "{{ .Source }}" }}", "{{ "{{ .Target }}" }}"] 

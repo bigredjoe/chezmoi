@@ -5,7 +5,6 @@ brew bundle --no-lock --file=/dev/stdin <<EOF
 tap "dtjm/taps"
 tap "dteoh/devdocs"
 tap "homebrew/bundle"
-tap "homebrew/cask-versions"
 tap "watr/formulae"
 tap 'azure/functions'
 tap 'heroku/brew'
@@ -33,6 +32,13 @@ cask {{ . | quote }}
 {{- end }}
 EOF
 
+{{ range .packages.darwin.shared.mas -}}
+mas install {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.personal.mas -}}
+mas install {{ . | quote }}
+{{ end -}}
+
 {{- if eq .type "work" }}
 function install_dotnet () {
     if test $(which dotnet)
@@ -55,7 +61,6 @@ function install_dotnet () {
 }
 install_dotnet
 
-nvm install 20.11.1
 
 {{ range .packages.npm.work -}}
 npm install -g {{ . | quote }}

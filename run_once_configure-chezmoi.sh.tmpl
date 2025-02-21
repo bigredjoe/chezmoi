@@ -1,0 +1,16 @@
+{{ if ne .chezmoi.os "windows" }}
+#!/bin/bash
+
+CONFIG_DIR="${HOME}/.config/chezmoi"
+CONFIG_FILE="${CONFIG_DIR}/chezmoi.toml"
+
+# Create config directory if it doesn't exist
+mkdir -p "${CONFIG_DIR}"
+
+# Only copy the template if the config file doesn't exist
+if [ ! -f "${CONFIG_FILE}" ]; then
+    echo "Initializing chezmoi configuration..."
+    chezmoi execute-template < {{ .chezmoi.sourceDir }}/.chezmoi.toml.tmpl > "${CONFIG_FILE}"
+    echo "Created default chezmoi configuration at ${CONFIG_FILE}"
+fi
+{{ end }} 
