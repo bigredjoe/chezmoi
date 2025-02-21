@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Create a directory to store the state of opened URLs
+STATE_DIR="${HOME}/.local/state/manual_downloads"
+mkdir -p "${STATE_DIR}"
+
+# Function to open URL and mark as opened
+open_url() {
+    local name="$1"
+    local url="$2"
+    local description="$3"
+    local state_file="${STATE_DIR}/${name// /_}.opened"
+
+    if [ ! -f "$state_file" ]; then
+        echo "Opening download page for: $name"
+        echo "Description: $description"
+        echo "URL: $url"
+        
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            open "$url"
+        elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
+            start "$url"
+        else
+            xdg-open "$url"
+        fi
+
+        # Create state file with timestamp
+        date > "$state_file"
+        echo "Marked $name as opened"
+        echo "----------------------------------------"
+    fi
+}
+
+echo "Checking for manual software downloads..."
+echo "----------------------------------------"
+
+# Process shared downloads
+{{ range .packages.manual_downloads.shared -}}
+open_url "{{ .name }}" "{{ .url }}" "{{ .description }}"
+{{ end }}
+
+# Process OS-specific downloads
+{{ if eq .chezmoi.os "darwin" -}}
+{{ range .packages.manual_downloads.darwin -}}
+open_url "{{ .name }}" "{{ .url }}" "{{ .description }}"
+{{ end }}
+{{ else if eq .chezmoi.os "windows" -}}
+{{ range .packages.manual_downloads.windows -}}
+open_url "{{ .name }}" "{{ .url }}" "{{ .description }}"
+{{ end }}
+{{ end }} 

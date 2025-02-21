@@ -10,3 +10,24 @@ alias.cmd
 Documents/WindowsPowerShell
 AppData/Roaming/gitui/key_bindings.ron
 {{ end -}}
+
+# Ignore the actual config file
+.config/chezmoi/chezmoi.toml
+
+# Template and setup files
+.chezmoi.toml.tmpl
+README.md
+LICENSE
+
+# Common VCS dirs
+.git/
+.hg/
+.svn/
+
+# Common backup files
+*.swp
+*~
+
+# Common system files
+.DS_Store
+._*
