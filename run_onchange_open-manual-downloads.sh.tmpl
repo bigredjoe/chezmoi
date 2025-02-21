@@ -1,3 +1,4 @@
+{{ if ne .chezmoi.os "windows" }}
 #!/bin/bash
 
 # Create a directory to store the state of opened URLs
@@ -18,8 +19,6 @@ open_url() {
         
         if [[ "$OSTYPE" == "darwin"* ]]; then
             open "$url"
-        elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
-            start "$url"
         else
             xdg-open "$url"
         fi
@@ -44,8 +43,5 @@ open_url "{{ .name }}" "{{ .url }}" "{{ .description }}"
 {{ range .packages.manual_downloads.darwin -}}
 open_url "{{ .name }}" "{{ .url }}" "{{ .description }}"
 {{ end }}
-{{ else if eq .chezmoi.os "windows" -}}
-{{ range .packages.manual_downloads.windows -}}
-open_url "{{ .name }}" "{{ .url }}" "{{ .description }}"
 {{ end }}
 {{ end }} 

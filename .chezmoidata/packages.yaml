@@ -49,6 +49,7 @@ packages:
         - "raindropio"
       mas:
         - 1107421413 # "1Blocker"
+        - 1579902068 # xSearch for Safari
         - 1499215709 # "Pasteboard Viewer"
         - 488536386 # "Location Helper"
         - 1295203466 # "Microsoft Remote Desktop"
@@ -71,15 +72,18 @@ packages:
         - "cursor"
         - "openscad"
         - "bettertouchtool"
+        - "exifcleaner"
         - "enjoyable"
         - "mullvadvpn"
         - "airfoil"
         - "altserver"
         - "bambu-studio"
         - "dropbox"
+        - "mullvad-browser"
         - "accordance"
         - "cryptomator"
         - "gifski"
+        - "outfox"
         - "logos"
         - "moonlight"
       mas:
@@ -88,17 +92,23 @@ packages:
         - 1476163639 # "LookUp"
         - 524141863 # "Jump Desktop"
         - 424390742 # Compressor
+        - 434290957 # Motion
         - 1303222628 # "Paprika Recipe Manager 3"
         - 562184107 # "LanScan Pro"
         - 524373870 # "Due"
+        - 905384638 # FileBot
         - 1173660007 # "Accordance"
+        - 6448106860 # Private LLM
         - 824171161 # "Affinity Designer"
         - 824183456 # "Affinity Photo"
         - 881418622 # "Affinity Publisher"
+        - 409907375 # Apple Remote Desktop
         - 402383384 # "Base"
         - 1568395334 # "Collections Database"
         - 528183797 # "Joystick Mapper"
         - 1530751461 # Snippety
+        - 1542229474 # FileBrowser Pro
+        - 424389933 # Final Cut Pro
   windows:
     full-machine:
       winget:
@@ -167,12 +177,18 @@ packages:
       - "azurite"
   manual_downloads:
     shared:
-      - name: "Logitech G Hub"
-        url: "https://www.logitechg.com/en-us/innovation/g-hub.html"
-        description: "Gaming peripheral configuration software"
-      - name: "Elgato Control Center"
-        url: "https://www.elgato.com/downloads"
-        description: "Elgato device management software"
+      - name: "Script Kit"
+        url: "https://scriptkit.com/download/"
+        description: "Scripting tool"
+      - name: "Signal App"
+        url: "https://signal.org/download/"
+        description: "Signal messaging app"
+      - name: "Synergy"
+        url: "https://symless.com/synergy/download"
+        description: "Synergy"
+      - name: "Duet Display"
+        url: "https://www.duetdisplay.com/#downloads"
+        description: "Duet Display"
     darwin:
       - name: "Keyboard Maestro"
         url: "https://www.keyboardmaestro.com/main/"
