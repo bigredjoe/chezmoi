@@ -1,0 +1,45 @@
+{{ if eq .chezmoi.os "windows" }}
+# PowerShell script to handle manual downloads
+
+# Create a directory to store the state of opened URLs
+$STATE_DIR = Join-Path $env:LOCALAPPDATA "manual_downloads"
+if (-not (Test-Path $STATE_DIR)) {
+    New-Item -ItemType Directory -Path $STATE_DIR | Out-Null
+}
+
+function Open-DownloadUrl {
+    param(
+        [string]$Name,
+        [string]$Url,
+        [string]$Description
+    )
+
+    $stateFile = Join-Path $STATE_DIR ($Name -replace ' ', '_' + ".opened")
+
+    if (-not (Test-Path $stateFile)) {
+        Write-Host "Opening download page for: $Name"
+        Write-Host "Description: $Description"
+        Write-Host "URL: $Url"
+        
+        Start-Process $Url
+
+        # Create state file with timestamp
+        Get-Date | Out-File -FilePath $stateFile
+        Write-Host "Marked $Name as opened"
+        Write-Host "----------------------------------------"
+    }
+}
+
+Write-Host "Checking for manual software downloads..."
+Write-Host "----------------------------------------"
+
+# Process shared downloads
+{{ range .packages.manual_downloads.shared }}
+Open-DownloadUrl -Name "{{ .name }}" -Url "{{ .url }}" -Description "{{ .description }}"
+{{ end }}
+
+# Process Windows-specific downloads
+{{ range .packages.manual_downloads.windows }}
+Open-DownloadUrl -Name "{{ .name }}" -Url "{{ .url }}" -Description "{{ .description }}"
+{{ end }}
+{{ end }} 
