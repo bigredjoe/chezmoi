@@ -141,7 +141,9 @@ packages:
         - "Valve.Steam"
         - "Cryptomator.Cryptomator"
         - "GuinpinSoft.MakeMKV"
+        - "Cloudflare.cloudflare"
         - "Anaconda.Anaconda3"
+        - "WeMod.WeMod"
         - "LizardByte.Sunshine"
     shared:
       winget:
@@ -189,6 +191,9 @@ packages:
       - name: "Duet Display"
         url: "https://www.duetdisplay.com/#downloads"
         description: "Duet Display"
+      - name: "Malwarebytes"
+        url: "https://www.malwarebytes.com/mwb-download"
+        description: "Malwarebytes"
     darwin:
       - name: "Keyboard Maestro"
         url: "https://www.keyboardmaestro.com/main/"
