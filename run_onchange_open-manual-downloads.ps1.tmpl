@@ -14,7 +14,7 @@ function Open-DownloadUrl {
         [string]$Description
     )
 
-    $stateFile = Join-Path $STATE_DIR ($Name -replace ' ', '_' + ".opened")
+    $stateFile = Join-Path $STATE_DIR ($Name.Replace(' ', '_') + ".opened")
 
     if (-not (Test-Path $stateFile)) {
         Write-Host "Opening download page for: $Name"
