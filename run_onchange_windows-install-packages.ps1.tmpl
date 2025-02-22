@@ -2,7 +2,9 @@
 {{ range .packages.windows.shared.winget -}}
 winget install {{ . | quote }}
 {{ end -}}
-nvm install 20.11.1
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+fnm install --lts
+fnm use lts-latest
 {{- if eq .type "work" }}
 {{ range .packages.windows.work.winget -}}
 winget install {{ . | quote }}
@@ -11,7 +13,7 @@ winget install {{ . | quote }}
 npm install -g {{ . | quote }}
 {{ end -}}
 {{- end }}
-{{- if eq .chezmoi.hostname "jo-redux-pc" }}
+{{- if eq .type "personal" }}
 {{ range .packages.windows.personal.winget -}}
 winget install {{ . | quote }}
 {{ end -}}
