@@ -6,7 +6,6 @@ packages:
         - "git"
         - "gitui"
         - "ffmpeg"
-        - "ollama"
         - "jarred-sumner/git-peek/git-peek"
         - "bat"
         - "jo"
@@ -16,6 +15,7 @@ packages:
         - "python"
       casks:
         - "mitmproxy"
+        - "ollama"
         - "sf-symbols"
         - "proxyman"
         - "beyond-compare"
@@ -48,7 +48,6 @@ packages:
         - "scroll-reverser"
         - "raindropio"
       mas:
-        - 1107421413 # "1Blocker"
         - 1579902068 # xSearch for Safari
         - 1499215709 # "Pasteboard Viewer"
         - 488536386 # "Location Helper"
@@ -66,7 +65,9 @@ packages:
     personal:
       brews:
         - "yt-dlp"
+        - "gifski"
       casks:
+        - "1password"
         - "devonthink"
         - "bartender"
         - "cursor"
@@ -82,22 +83,19 @@ packages:
         - "mullvad-browser"
         - "accordance"
         - "cryptomator"
-        - "gifski"
         - "outfox"
         - "logos"
         - "moonlight"
       mas:
+        - 1569813296 # 1Password for Safari
         - 411643860 # "DaisyDisk"
-        - 403388562 # "Transmit"
-        - 1476163639 # "LookUp"
         - 524141863 # "Jump Desktop"
         - 424390742 # Compressor
         - 434290957 # Motion
         - 1303222628 # "Paprika Recipe Manager 3"
-        - 562184107 # "LanScan Pro"
+        - 472226235 # "LanScan"
         - 524373870 # "Due"
         - 905384638 # FileBot
-        - 1173660007 # "Accordance"
         - 6448106860 # Private LLM
         - 824171161 # "Affinity Designer"
         - 824183456 # "Affinity Photo"
@@ -196,9 +194,6 @@ packages:
         url: "https://www.malwarebytes.com/mwb-download"
         description: "Malwarebytes"
     darwin:
-      - name: "Keyboard Maestro"
-        url: "https://www.keyboardmaestro.com/main/"
-        description: "Powerful Mac automation tool"
     windows:
       - name: "PowerToys"
         url: "https://github.com/microsoft/PowerToys/releases/latest"
