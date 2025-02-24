@@ -6,7 +6,6 @@ packages:
         - "git"
         - "gitui"
         - "ffmpeg"
-        - "ollama"
         - "jarred-sumner/git-peek/git-peek"
         - "bat"
         - "jo"
@@ -16,6 +15,7 @@ packages:
         - "python"
       casks:
         - "mitmproxy"
+        - "ollama"
         - "sf-symbols"
         - "proxyman"
         - "beyond-compare"
@@ -48,7 +48,6 @@ packages:
         - "scroll-reverser"
         - "raindropio"
       mas:
-        - 1107421413 # "1Blocker"
         - 1579902068 # xSearch for Safari
         - 1499215709 # "Pasteboard Viewer"
         - 488536386 # "Location Helper"
@@ -90,12 +89,11 @@ packages:
       mas:
         - 1569813296 # 1Password for Safari
         - 411643860 # "DaisyDisk"
-        - 403388562 # "Transmit"
         - 524141863 # "Jump Desktop"
         - 424390742 # Compressor
         - 434290957 # Motion
         - 1303222628 # "Paprika Recipe Manager 3"
-        - 562184107 # "LanScan Pro"
+        - 472226235 # "LanScan"
         - 524373870 # "Due"
         - 905384638 # FileBot
         - 6448106860 # Private LLM
