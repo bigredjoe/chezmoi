@@ -1,4 +1,4 @@
-{{ if ne .chezmoi.os "windows" }}
+{{- if ne .chezmoi.os "windows" -}}
 #!/bin/bash
 
 # Create a directory to store the state of opened URLs
@@ -34,14 +34,14 @@ echo "Checking for manual software downloads..."
 echo "----------------------------------------"
 
 # Process shared downloads
-{{ range .packages.manual_downloads.shared -}}
+{{- range .packages.manual_downloads.shared }}
 open_url "{{ .name }}" "{{ .url }}" "{{ .description }}"
-{{ end }}
+{{- end }}
 
 # Process OS-specific downloads
-{{ if eq .chezmoi.os "darwin" -}}
-{{ range .packages.manual_downloads.darwin -}}
+{{- if eq .chezmoi.os "darwin" }}
+{{- range .packages.manual_downloads.darwin }}
 open_url "{{ .name }}" "{{ .url }}" "{{ .description }}"
-{{ end }}
-{{ end }}
-{{ end }} 
+{{- end }}
+{{- end }}
+{{- end }} 
