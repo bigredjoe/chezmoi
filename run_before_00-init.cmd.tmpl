@@ -13,19 +13,9 @@ if exist "%STATE_FILE%" (
 
 echo Running Windows initialization script...
 
-REM Enable Windows features
-echo Enabling Windows features...
-dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-
 REM Set execution policy for PowerShell scripts
 echo Setting PowerShell execution policy...
 powershell -Command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force"
-
-REM Configure git
-echo Configuring git...
-git config --global core.autocrlf true
-git config --global core.eol lf
 
 REM Create state directory and file to mark completion
 if not exist "%STATE_DIR%" mkdir "%STATE_DIR%"
