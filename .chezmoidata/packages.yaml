@@ -68,6 +68,7 @@ packages:
         - "gifski"
       casks:
         - "1password"
+        - "calibre"
         - "devonthink"
         - "bartender"
         - "cursor"
@@ -148,6 +149,7 @@ packages:
       winget:
         - "Git.Git"
         - "OBSProject.OBSStudio"
+        - "ImageOptim.GifSki"
         - "Obsidian.Obsidian"
         - "RustemMussabekov.Raindrop"
         - "Icons8.Lunacy"
