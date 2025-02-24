@@ -1,8 +1,15 @@
 {{ if eq .chezmoi.os "windows" -}}
-# Enable Windows features
-Write-Host "Enabling Windows features..."
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -All -NoRestart
-Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -All -NoRestart
+# Check if running in a VM
+$isVM = (Get-WmiObject -Class Win32_ComputerSystem).Model -match "Virtual|VMware|VirtualBox|HVM|Parallels"
+
+# Enable Windows features only if not in a VM
+if (-not $isVM) {
+    Write-Host "Enabling Windows features..."
+    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -All -NoRestart
+    Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -All -NoRestart
+} else {
+    Write-Host "Running in a VM - skipping Windows features enablement..."
+}
 
 # Configure git
 Write-Host "Configuring git..."
