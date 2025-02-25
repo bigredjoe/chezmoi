@@ -1,7 +1,7 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-# Close any open System Preferences panes, to prevent them from overriding settings we’re about to change
+# Close any open System Preferences panes, to prevent them from overriding settings we're about to change
 osascript -e 'tell application "System Preferences" to quit'
 
 # Ask for the administrator password upfront
@@ -112,10 +112,13 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 echo "Vim Vscode Press and Hold"
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
-
 echo "Save to disk instead of iCloud by default"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 echo "Always show scrollbars"
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+echo "Show volume in menu bar"
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
+defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Volume.menu"
 {{ end -}}
