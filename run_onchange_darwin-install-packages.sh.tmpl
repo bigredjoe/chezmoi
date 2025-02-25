@@ -61,6 +61,8 @@ function install_dotnet () {
 }
 install_dotnet
 
+fnm install --lts
+fnm use lts-latest
 
 {{ range .packages.npm.work -}}
 npm install -g {{ . | quote }}
