@@ -1,4 +1,0 @@
-[".powershell-profile-path"]
-    type = "command"
-    command = "powershell"
-    args = ["-NoProfile", "-Command", "$PROFILE.CurrentUserAllHosts"] 

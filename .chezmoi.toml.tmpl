@@ -5,6 +5,7 @@
     name = "{{ promptString "What is your full name" }}"
     email = "{{ promptString "What is your email" }}"
     type = "{{ promptString "What type of machine is this (work/personal)" }}"
+    powershell_profile_path = "{{ env "POWERSHELL_PROFILE_PATH" }}"
 
 [git]
     autoCommit = true
@@ -17,3 +18,6 @@
 [merge]
     command = "code"
     args = ["--wait", "--diff", "{{ "{{ .Destination }}" }}", "{{ "{{ .Source }}" }}", "{{ "{{ .Target }}" }}"] 
+
+[scriptEnv]
+    POWERSHELL_PROFILE_PATH = true 
