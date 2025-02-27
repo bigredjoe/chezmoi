@@ -17,6 +17,7 @@ packages:
         - "mitmproxy"
         - "ollama"
         - "sf-symbols"
+        - "heynote"
         - "proxyman"
         - "beyond-compare"
         - "superwhisper"
@@ -67,6 +68,8 @@ packages:
       brews:
         - "yt-dlp"
         - "gifski"
+        - "fuse-t"
+        - "fuse-t-sshfs"
       casks:
         - "1password"
         - "calibre"

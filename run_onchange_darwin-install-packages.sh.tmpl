@@ -7,6 +7,7 @@ tap "dteoh/devdocs"
 tap "homebrew/bundle"
 tap "watr/formulae"
 tap 'azure/functions'
+tap 'macos-fuse-t/homebrew-cask'
 tap 'heroku/brew'
 {{ range .packages.darwin.shared.brews -}}
 brew {{ . | quote }}
