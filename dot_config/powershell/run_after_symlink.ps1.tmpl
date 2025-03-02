@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.os "windows" }}
 #!/usr/bin/env pwsh
 # profile hash: {{ include "profile.ps1" | sha256sum }}
 $ErrorView = 'DetailedView'
@@ -25,3 +26,4 @@ if ($Profile.CurrentUserAllHosts -ne (Convert-Path profile.ps1)) {
     
     Copy-Item profile.ps1 $Profile.CurrentUserAllHosts
 }
+{{ end }}
