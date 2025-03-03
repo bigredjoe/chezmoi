@@ -56,6 +56,7 @@ packages:
         - 497799835 # "Xcode"
         - 1549370672 # Save to Raindrop
         - 1351639930 # GifSki
+        - 1640236961 # Save to Reader
         - 1440147259 # "AdGuard for Safari"
         - 498370702 # "RegExRX"
     work:
@@ -68,13 +69,13 @@ packages:
       brews:
         - "yt-dlp"
         - "gifski"
-        - "fuse-t"
-        - "fuse-t-sshfs"
       casks:
         - "1password"
         - "calibre"
         - "devonthink"
         - "bartender"
+        - "fuse-t"
+        - "fuse-t-sshfs"
         - "cursor"
         - "openscad"
         - "bettertouchtool"
@@ -102,6 +103,7 @@ packages:
         - 524373870 # "Due"
         - 905384638 # FileBot
         - 6448106860 # Private LLM
+        - 1622835804 # Kagi for Safari
         - 824171161 # "Affinity Designer"
         - 824183456 # "Affinity Photo"
         - 881418622 # "Affinity Publisher"
