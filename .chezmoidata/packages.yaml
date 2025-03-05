@@ -6,7 +6,6 @@ packages:
         - "git"
         - "gitui"
         - "ffmpeg"
-        - "jarred-sumner/git-peek/git-peek"
         - "bat"
         - "jo"
         - "jq"
