@@ -137,6 +137,7 @@ packages:
         - "Anki.Anki"
         - "Discord.Discord"
         - "PaprikaApp.Paprika.3"
+        - "dokan-dev.Dokany"
         - "OpenSCAD"
         - "Playnite.Playnite"
         - "GIMP.GIMP"
