@@ -72,6 +72,7 @@ packages:
         - "1password"
         - "calibre"
         - "devonthink"
+        - "musescore"
         - "bartender"
         - "fuse-t"
         - "fuse-t-sshfs"
