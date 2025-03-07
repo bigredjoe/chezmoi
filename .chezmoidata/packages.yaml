@@ -39,6 +39,7 @@ packages:
         - "script-debugger"
         - "obsidian"
         - "vlc"
+        - "anaconda"
         - "obs"
         - "sublime-text"
         - "imageoptim"
