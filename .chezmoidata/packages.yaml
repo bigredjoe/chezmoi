@@ -138,6 +138,7 @@ packages:
         - "Discord.Discord"
         - "PaprikaApp.Paprika.3"
         - "dokan-dev.Dokany"
+        - "JTKsoftware.JoyToKey"
         - "OpenSCAD"
         - "Playnite.Playnite"
         - "GIMP.GIMP"
