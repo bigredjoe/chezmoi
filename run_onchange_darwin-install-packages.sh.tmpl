@@ -40,6 +40,8 @@ mas install {{ . | quote }}
 mas install {{ . | quote }}
 {{ end -}}
 
+/opt/homebrew/anaconda3/bin/conda init zsh
+
 {{- if eq .type "work" }}
 function install_dotnet () {
     if test $(which dotnet)
