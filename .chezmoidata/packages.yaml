@@ -132,6 +132,7 @@ packages:
     personal:
       winget:
         - "MullvadVPN.MullvadVPN"
+        - "GlennDelahoy.SnappyDriverInstallerOrigin"
         - "Backblaze"
         - "AgileBits.1Password"
         - "Brave.Brave"
