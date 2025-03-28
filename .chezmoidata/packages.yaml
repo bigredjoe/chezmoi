@@ -15,6 +15,7 @@ packages:
         - "python"
       casks:
         - "mitmproxy"
+        - "angry-ip-scanner"
         - "ollama"
         - "sf-symbols"
         - "heynote"
