@@ -169,6 +169,7 @@ packages:
         - "7zip.7zip"
         - "jqlang.jq"
         - "Ollama.Ollama"
+        - "angryziber.AngryIPScanner"
         - "ScooterSoftware.BeyondCompare4"
         - "CPUID.CPU-Z"
         - "StephanDilly.gitui"
