@@ -2,19 +2,82 @@
 # Check if running in a VM
 $isVM = (Get-WmiObject -Class Win32_ComputerSystem).Model -match "Virtual|VMware|VirtualBox|HVM|Parallels"
 
-# Enable Windows features only if not in a VM
-if (-not $isVM) {
-    Write-Host "Enabling Windows features..."
-    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -All -NoRestart
-    Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -All -NoRestart
+# Function to run admin tasks
+function Run-AdminTasks {
+    # Enable Windows features only if not in a VM
+    if (-not $isVM) {
+        Write-Host "Enabling Windows features..."
+        Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -All -NoRestart
+        Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -All -NoRestart
+    } else {
+        Write-Host "Running in a VM - skipping Windows features enablement..."
+    }
+}
+
+# Check if running with admin privileges
+$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+
+if (-not $isAdmin) {
+    Write-Host "Attempting to elevate privileges for Windows feature enablement..."
+    # Create a temporary script file for admin tasks
+    $adminScript = [System.IO.Path]::GetTempFileName() + ".ps1"
+    @"
+    # Check if running in a VM
+    `$isVM = (Get-WmiObject -Class Win32_ComputerSystem).Model -match "Virtual|VMware|VirtualBox|HVM|Parallels"
+    
+    # Enable Windows features only if not in a VM
+    if (-not `$isVM) {
+        Write-Host "Enabling Windows features..."
+        Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -All -NoRestart
+        Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -All -NoRestart
+    } else {
+        Write-Host "Running in a VM - skipping Windows features enablement..."
+    }
+"@ | Out-File -FilePath $adminScript -Encoding UTF8
+
+    # Run the admin script with elevation
+    Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$adminScript`"" -Verb RunAs -Wait
+    
+    # Clean up the temporary script
+    Remove-Item $adminScript -Force
 } else {
-    Write-Host "Running in a VM - skipping Windows features enablement..."
+    # Run admin tasks directly if already elevated
+    Run-AdminTasks
 }
 
 # Configure git
 Write-Host "Configuring git..."
 git config --global core.autocrlf true
 git config --global core.eol lf
+
+# Add conda to PATH
+Write-Host "Configuring conda PATH..."
+$condaPaths = @(
+    "$env:USERPROFILE\anaconda3",
+    "$env:USERPROFILE\miniconda3",
+    "$env:USERPROFILE\AppData\Local\anaconda3",
+    "$env:USERPROFILE\AppData\Local\miniconda3"
+)
+
+$condaFound = $false
+foreach ($path in $condaPaths) {
+    if (Test-Path $path) {
+        $condaFound = $true
+        $currentPath = [Environment]::GetEnvironmentVariable("PATH", "User")
+        if (-not $currentPath.Contains($path)) {
+            $newPath = "$currentPath;$path;$path\Scripts;$path\Library\bin"
+            [Environment]::SetEnvironmentVariable("PATH", $newPath, "User")
+            Write-Host "Added conda from $path to PATH"
+        } else {
+            Write-Host "Conda path already exists in PATH"
+        }
+        break
+    }
+}
+
+if (-not $condaFound) {
+    Write-Host "No conda installation found in common locations"
+}
 
 # Disable Windows 11 Widgets by uninstalling Windows Web Experience Pack
 Write-Host "Disabling Windows 11 Widgets..."
