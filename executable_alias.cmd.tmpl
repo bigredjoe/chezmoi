@@ -7,6 +7,13 @@ DOSKEY ps=powershell
 DOSKEY admin=powershell -Command "Start-Process cmd -Verb RunAs -WorkingDirectory $PWD"
 DOSKEY repos=cd %USERPROFILE%\dev
 
+@echo off
+:: for /F will launch a new instance of cmd so we create a guard to prevent an infnite loop
+if not defined FNM_AUTORUN_GUARD (
+    set "FNM_AUTORUN_GUARD=AutorunGuard"
+    FOR /f "tokens=*" %%z IN ('fnm env --use-on-cd') DO CALL %%z
+)
+
 {{- if eq .type "work" }}
 DOSKEY hj=cd %USERPROFILE%\dev\HeavyJob
 DOSKEY hjw=cd %USERPROFILE%\dev\HeavyJob\Web
