@@ -62,6 +62,7 @@ packages:
         - 1640236961 # Save to Reader
         - 1440147259 # "AdGuard for Safari"
         - 498370702 # "RegExRX"
+        - 1469400117 # "Red Lines Tools"
     work:
       brews:
         - "azure-cli"
