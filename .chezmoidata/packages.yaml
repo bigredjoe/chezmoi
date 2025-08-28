@@ -63,6 +63,7 @@ packages:
         - 1440147259 # "AdGuard for Safari"
         - 498370702 # "RegExRX"
         - 1469400117 # "Red Lines Tools"
+        - 6744974871 # WakeMinder
     work:
       brews:
         - "azure-cli"
@@ -135,11 +136,9 @@ packages:
         - "Microsoft.Azure.FunctionsCoreTools"
     personal:
       winget:
-        - "MullvadVPN.MullvadVPN"
         - "GlennDelahoy.SnappyDriverInstallerOrigin"
         - "Backblaze"
         - "AgileBits.1Password"
-        - "Brave.Brave"
         - "Bambulab.Bambustudio"
         - "Anki.Anki"
         - "Discord.Discord"
@@ -158,7 +157,6 @@ packages:
         - "Cloudflare.cloudflare"
         - "Anaconda.Anaconda3"
         - "WeMod.WeMod"
-        - "LizardByte.Sunshine"
     shared:
       winget:
         - "Git.Git"
