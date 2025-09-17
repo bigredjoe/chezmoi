@@ -21,13 +21,51 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 echo "Set a shorter delay until key repeat"
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
-echo "Enabled the Safari debug menu"
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+echo "Configuring Safari developer settings..."
+# Kill Safari if running to allow preference changes
+killall Safari 2>/dev/null || true
+sleep 2
 
-echo "Enabled the Develop menu and the Web Inspector in Safari"
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
+# Set Safari developer preferences (macOS Tahoe may have restrictions)
+echo "Attempting to enable Safari developer settings..."
+
+# Try the traditional method first
+if defaults write com.apple.Safari IncludeInternalDebugMenu -bool true 2>/dev/null; then
+    echo "✓ Enabled Safari debug menu"
+else
+    echo "⚠ Could not set Safari debug menu (may require manual setup in Safari > Preferences > Advanced)"
+fi
+
+if defaults write com.apple.Safari IncludeDevelopMenu -bool true 2>/dev/null; then
+    echo "✓ Enabled Safari Develop menu"
+else
+    echo "⚠ Could not set Safari Develop menu (may require manual setup in Safari > Preferences > Advanced)"
+fi
+
+if defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true 2>/dev/null; then
+    echo "✓ Enabled Safari WebKit developer extras"
+else
+    echo "⚠ Could not set Safari WebKit developer extras"
+fi
+
+if defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true 2>/dev/null; then
+    echo "✓ Enabled Safari WebKit2 developer extras"
+else
+    echo "⚠ Could not set Safari WebKit2 developer extras"
+fi
+
+# Set global WebKit developer extras (this usually works)
+if defaults write NSGlobalDomain WebKitDeveloperExtras -bool true 2>/dev/null; then
+    echo "✓ Enabled global WebKit developer extras"
+else
+    echo "⚠ Could not set global WebKit developer extras"
+fi
+
+echo ""
+echo "Note: On macOS Tahoe, some Safari preferences may need to be set manually:"
+echo "1. Open Safari > Settings > Advanced"
+echo "2. Check 'Show features for web developers'"
+echo "3. Restart Safari to see changes"
 
 echo "Set the the path bar in Finder to show"
 defaults write com.apple.finder ShowPathbar -bool true
@@ -64,10 +102,10 @@ defaults write com.google.Chrome DisablePrintPreview -bool true
 defaults write com.google.Chrome.canary DisablePrintPreview -bool true
 
 echo "Set to reveal IP address, hostname, OS version, etc. when clicking the clock in the login window"
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostecho HostName
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName 2>/dev/null || echo "Warning: Could not set login window host info"
 
 echo "Set the computer to restart automatically on freeze"
-sudo systemsetup -setrestartfreeze on
+sudo systemsetup -setrestartfreeze on 2>/dev/null || echo "Warning: Could not set restart on freeze (may not be supported on this system)"
 
 echo "Disabled smart quotes (annoying when writing code)"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
@@ -104,7 +142,7 @@ echo "Disabled writing DS_Store files to network drives"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 echo "Set to show the Library folder"
-chflags nohidden ~/Library
+chflags nohidden ~/Library 2>/dev/null || echo "Warning: Could not unhide Library folder"
 
 echo "Preventing Photos from opening every time a device is plugged in"
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true

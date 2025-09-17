@@ -1,7 +1,7 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 tap "dtjm/taps"
 tap "dteoh/devdocs"
 tap "homebrew/bundle"
@@ -33,6 +33,7 @@ cask {{ . | quote }}
 {{- end }}
 EOF
 
+# Install Mac App Store apps (mas should be installed by brew bundle above)
 {{ range .packages.darwin.shared.mas -}}
 mas install {{ . | quote }}
 {{ end -}}
@@ -40,11 +41,95 @@ mas install {{ . | quote }}
 mas install {{ . | quote }}
 {{ end -}}
 
-/opt/homebrew/anaconda3/bin/conda init zsh
+# Initialize conda (installed by brew bundle above)
+# Try the standard Homebrew path first, then fall back to system PATH
+if [ -f "/opt/homebrew/anaconda3/bin/conda" ]; then
+    /opt/homebrew/anaconda3/bin/conda init zsh
+elif command -v conda >/dev/null 2>&1; then
+    conda init zsh
+else
+    echo "Warning: conda not found. Make sure anaconda cask is installed."
+fi
 
-/opt/homebrew/bin/rbenv init
-/opt/homebrew/bin/rbenv install 3.2.2
-rbenv global 3.2.2
+# Initialize rbenv (installed by brew bundle above)
+# Try the standard Homebrew path first, then fall back to system PATH
+if [ -f "/opt/homebrew/bin/rbenv" ]; then
+    /opt/homebrew/bin/rbenv init
+    
+    # Check if Xcode license is agreed to and accept it automatically
+    if ! gcc --version >/dev/null 2>&1; then
+        echo "Xcode license not accepted. Attempting to accept license automatically..."
+        echo "You may be prompted for your password..."
+        if sudo xcodebuild -license accept; then
+            echo "Xcode license accepted successfully."
+        else
+            echo "Failed to accept Xcode license automatically."
+            echo "Please run manually: sudo xcodebuild -license"
+            echo "Then run chezmoi apply again."
+            echo "Skipping Ruby installation until Xcode license is accepted."
+        fi
+    fi
+    
+    # Try Ruby installation if license is now accepted
+    if gcc --version >/dev/null 2>&1; then
+        # Try to install a recent Ruby version (3.3.9 is more stable on newer macOS)
+        echo "Installing Ruby 3.3.9 (more compatible with newer macOS)..."
+        if /opt/homebrew/bin/rbenv install 3.3.9; then
+            /opt/homebrew/bin/rbenv global 3.3.9
+            echo "Ruby 3.3.9 installed successfully"
+        else
+            echo "Failed to install Ruby 3.3.9, trying Ruby 3.2.2..."
+            if /opt/homebrew/bin/rbenv install 3.2.2; then
+                /opt/homebrew/bin/rbenv global 3.2.2
+                echo "Ruby 3.2.2 installed successfully"
+            else
+                echo "Warning: Failed to install Ruby. You may need to:"
+                echo "1. Accept Xcode license: sudo xcodebuild -license"
+                echo "2. Update ruby-build: brew upgrade ruby-build"
+                echo "3. Install dependencies: brew install openssl@3 readline"
+            fi
+        fi
+    fi
+elif command -v rbenv >/dev/null 2>&1; then
+    rbenv init
+    
+    # Check if Xcode license is agreed to and accept it automatically
+    if ! gcc --version >/dev/null 2>&1; then
+        echo "Xcode license not accepted. Attempting to accept license automatically..."
+        echo "You may be prompted for your password..."
+        if sudo xcodebuild -license accept; then
+            echo "Xcode license accepted successfully."
+        else
+            echo "Failed to accept Xcode license automatically."
+            echo "Please run manually: sudo xcodebuild -license"
+            echo "Then run chezmoi apply again."
+            echo "Skipping Ruby installation until Xcode license is accepted."
+        fi
+    fi
+    
+    # Try Ruby installation if license is now accepted
+    if gcc --version >/dev/null 2>&1; then
+        # Try to install a recent Ruby version
+        echo "Installing Ruby 3.3.9 (more compatible with newer macOS)..."
+        if rbenv install 3.3.9; then
+            rbenv global 3.3.9
+            echo "Ruby 3.3.9 installed successfully"
+        else
+            echo "Failed to install Ruby 3.3.9, trying Ruby 3.2.2..."
+            if rbenv install 3.2.2; then
+                rbenv global 3.2.2
+                echo "Ruby 3.2.2 installed successfully"
+            else
+                echo "Warning: Failed to install Ruby. You may need to:"
+                echo "1. Accept Xcode license: sudo xcodebuild -license"
+                echo "2. Update ruby-build: brew upgrade ruby-build"
+                echo "3. Install dependencies: brew install openssl@3 readline"
+            fi
+        fi
+    fi
+else
+    echo "Warning: rbenv not found. Make sure rbenv brew is installed."
+fi
 
 {{- if eq .type "work" }}
 function install_dotnet () {
