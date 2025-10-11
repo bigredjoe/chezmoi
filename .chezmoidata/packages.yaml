@@ -34,6 +34,7 @@ packages:
         - "coscreen"
         - "anki"
         - "docker"
+        - "handy"
         - "dotnet-sdk"
         - "iterm2"
         - "postman"
@@ -210,6 +211,9 @@ packages:
       - name: "Malwarebytes"
         url: "https://www.malwarebytes.com/mwb-download"
         description: "Malwarebytes"
+      - name: "Handy"
+        url: "https://handy.computer"
+        description: "Handy"
     darwin:
     windows:
       - name: "PowerToys"
