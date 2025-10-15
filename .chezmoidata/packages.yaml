@@ -49,7 +49,6 @@ packages:
         - 1440147259 # "AdGuard for Safari"
         - 498370702 # "RegExRX"
         - 1469400117 # "Red Lines Tools"
-        - 6744974871 # WakeMinder
     work:
       brews:
         - "azure-cli"
@@ -94,6 +93,7 @@ packages:
         - 524141863 # "Jump Desktop"
         - 1499215709 # "Pasteboard Viewer"
         - 1579902068 # xSearch for Safari
+        - 6744974871 # WakeMinder 
         - 424390742 # Compressor
         - 1351639930 # GifSki
         - 6753110395 # Folder Quick Look

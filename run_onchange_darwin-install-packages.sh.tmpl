@@ -37,9 +37,12 @@ EOF
 {{ range .packages.darwin.shared.mas -}}
 mas install {{ . | quote }}
 {{ end -}}
+{{- if ne .type "work" }}
 {{ range .packages.darwin.personal.mas -}}
 mas install {{ . | quote }}
 {{ end -}}
+{{ end -}}
+
 
 # Initialize conda (installed by brew bundle above)
 # Try the standard Homebrew path first, then fall back to system PATH
