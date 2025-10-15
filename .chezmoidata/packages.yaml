@@ -82,8 +82,6 @@ packages:
         - "devonthink"
         - "musescore"
         - "bartender"
-        - "fuse-t"
-        - "fuse-t-sshfs"
         - "cursor"
         - "openscad"
         - "bettertouchtool"
