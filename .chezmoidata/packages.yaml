@@ -15,23 +15,14 @@ packages:
         - "openssl"
         - "python"
       casks:
-        - "mitmproxy"
         - "angry-ip-scanner"
         - "ollama"
-        - "sf-symbols"
-        - "heynote"
         - "proxyman"
         - "beyond-compare"
         - "superwhisper"
         - "devtoys"
         - "utm"
         - "reflector"
-        - "adapter"
-        - "raycast"
-        - "easyfind"
-        - "iterm2"
-        - "ngrok"
-        - "heynote"
         - "coscreen"
         - "anki"
         - "docker"
@@ -45,22 +36,15 @@ packages:
         - "obsidian"
         - "vlc"
         - "anaconda"
-        - "obs"
         - "sublime-text"
-        - "imageoptim"
         - "microsoft-office"
-        - "qlvideo"
-        - "appcleaner"
         - "scroll-reverser"
         - "raindropio"
       mas:
-        - 1579902068 # xSearch for Safari
-        - 1499215709 # "Pasteboard Viewer"
         - 488536386 # "Location Helper"
         - 1295203466 # "Microsoft Remote Desktop"
         - 497799835 # "Xcode"
         - 1549370672 # Save to Raindrop
-        - 1351639930 # GifSki
         - 1640236961 # Save to Reader
         - 1440147259 # "AdGuard for Safari"
         - 498370702 # "RegExRX"
@@ -78,20 +62,26 @@ packages:
         - "gifski"
       casks:
         - "1password"
+        - "mitmproxy"
         - "calibre"
         - "devonthink"
         - "musescore"
         - "bartender"
         - "cursor"
         - "openscad"
+        - "adapter"
         - "bettertouchtool"
         - "exifcleaner"
         - "enjoyable"
         - "mullvadvpn"
         - "airfoil"
+        - "obs"
+        - "imageoptim"
         - "altserver"
         - "bambu-studio"
         - "dropbox"
+        - "qlvideo"
+        - "appcleaner"
         - "mullvad-browser"
         - "accordance"
         - "cryptomator"
@@ -102,7 +92,10 @@ packages:
         - 1569813296 # 1Password for Safari
         - 411643860 # "DaisyDisk"
         - 524141863 # "Jump Desktop"
+        - 1499215709 # "Pasteboard Viewer"
+        - 1579902068 # xSearch for Safari
         - 424390742 # Compressor
+        - 1351639930 # GifSki
         - 6753110395 # Folder Quick Look
         - 434290957 # Motion
         - 1303222628 # "Paprika Recipe Manager 3"
