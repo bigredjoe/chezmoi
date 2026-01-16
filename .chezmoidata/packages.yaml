@@ -208,6 +208,9 @@ packages:
         url: "https://handy.computer"
         description: "Handy"
     darwin:
+      - name: "Cotypist"
+        url: "https://cotypist.app"
+        description: "Coptypist"
     windows:
       - name: "PowerToys"
         url: "https://github.com/microsoft/PowerToys/releases/latest"
