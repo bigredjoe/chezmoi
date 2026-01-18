@@ -39,14 +39,11 @@ packages:
         - "vlc"
         - "anaconda"
         - "sublime-text"
-        - "microsoft-office"
         - "scroll-reverser"
-        - "raindropio"
       mas:
         - 488536386 # "Location Helper"
         - 1295203466 # "Microsoft Remote Desktop"
         - 497799835 # "Xcode"
-        - 1549370672 # Save to Raindrop
         - 1640236961 # Save to Reader
         - 1440147259 # "AdGuard for Safari"
         - 498370702 # "RegExRX"
