@@ -17,6 +17,7 @@ packages:
       casks:
         - "angry-ip-scanner"
         - "localsend"
+        - "jordanbaird-ice"
         - "ollama"
         - "proxyman"
         - "beyond-compare"
