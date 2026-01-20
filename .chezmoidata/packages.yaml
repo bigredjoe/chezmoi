@@ -82,6 +82,7 @@ packages:
         - "appcleaner"
         - "mullvad-browser"
         - "accordance"
+        - "folx"
         - "cryptomator"
         - "outfox"
         - "logos"
