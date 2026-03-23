@@ -93,7 +93,7 @@ packages:
         - 524141863 # "Jump Desktop"
         - 1499215709 # "Pasteboard Viewer"
         - 1579902068 # xSearch for Safari
-        - 6744974871 # WakeMinder 
+        - 6744974871 # WakeMinder
         - 424390742 # Compressor
         - 1351639930 # GifSki
         - 6753110395 # Folder Quick Look
@@ -210,6 +210,9 @@ packages:
       - name: "Cotypist"
         url: "https://cotypist.app"
         description: "Coptypist"
+      - name: "Hot Notes"
+        url: "https://github.com/emadda/hot-notes"
+        description: "Hot Notes"
     windows:
       - name: "PowerToys"
         url: "https://github.com/microsoft/PowerToys/releases/latest"
