@@ -25,3 +25,4 @@ case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
+test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
