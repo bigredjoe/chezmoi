@@ -1,4 +1,4 @@
-{{- if ne .chezmoi.hostname "HOST-PLACEHOLDER-3" }}
+{{- if not .isWorkMac }}
 work-mac-setup.md
 {{- end }}
 {{ if ne .chezmoi.os "darwin" -}}
