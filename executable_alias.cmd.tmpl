@@ -15,7 +15,11 @@ if not defined FNM_AUTORUN_GUARD (
 )
 
 {{- if eq .type "work" }}
-DOSKEY hj=cd %USERPROFILE%\dev\HeavyJob
-DOSKEY hjw=cd %USERPROFILE%\dev\HeavyJob\Web
-DOSKEY hjww=cd %USERPROFILE%\dev\HeavyJob\Web\JobManager.Web
+{{- if hasKey . "workDirs" }}
+{{- with index .workDirs "heavyjob" }}
+DOSKEY hj=cd %USERPROFILE%\{{ . }}
+DOSKEY hjw=cd %USERPROFILE%\{{ . }}\Web
+DOSKEY hjww=cd %USERPROFILE%\{{ . }}\Web\JobManager.Web
+{{- end }}
+{{- end }}
 {{- end }}

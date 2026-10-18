@@ -1,16 +1,22 @@
 {{ if eq .chezmoi.os "windows" }}
 $userDirectory = $env:USERPROFILE
 {{- if eq .type "work" }}
-function HJDirectory { Set-Location "$userDirectory\dev\HeavyJob" }
+{{- if hasKey . "workDirs" }}
+{{- with index .workDirs "heavyjob" }}
+function HJDirectory { Set-Location "$userDirectory\{{ . }}" }
 Set-Alias -Name hj -Value HJDirectory
-function HJWDirectory { Set-Location "$userDirectory\dev\HeavyJob\Web" }
+function HJWDirectory { Set-Location "$userDirectory\{{ . }}\Web" }
 Set-Alias -Name hjw -Value HJWDirectory
-function HJWWDirectory { Set-Location "$userDirectory\dev\HeavyJob\Web\JobManager.Web" }
+function HJWWDirectory { Set-Location "$userDirectory\{{ . }}\Web\JobManager.Web" }
 Set-Alias -Name hjww -Value HJWWDirectory
-function TeleDirectory { Set-Location "$userDirectory\dev\Telematics" }
+{{- end }}
+{{- with index .workDirs "telematics" }}
+function TeleDirectory { Set-Location "$userDirectory\{{ . }}" }
 Set-Alias -Name tele -Value TeleDirectory 
-function MapDir { Set-Location "$userDirectory\dev\Telematics\Maps" }
+function MapDir { Set-Location "$userDirectory\{{ . }}\Maps" }
 Set-Alias -Name maps -Value MapDir
+{{- end }}
+{{- end }}
 {{- end}}
 function HomeDirectory { Set-Location $env:USERPROFILE }
 Set-Alias -Name home -Value HomeDirectory
