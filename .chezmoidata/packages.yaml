@@ -117,23 +117,17 @@ packages:
         - 1542229474 # FileBrowser Pro
         - 424389933 # Final Cut Pro
   windows:
-    full-machine:
-      winget:
-        - "Docker.DockerDesktop"
     work:
       winget:
         - "Microsoft.VisualStudio.2022.Professional"
-        - "Microsoft.AzureFunctionsCoreTools"
-        - "Microsoft.AzureStorageExplorer"
-        - "Microsoft.AzureDataStudio"
+        - "Microsoft.Azure.StorageExplorer"
         - "paolosalvatori.ServiceBusExplorer"
-        - "Microsoft.AzureCosmosEmulator"
+        - "Microsoft.Azure.CosmosEmulator"
         - "Microsoft.AzureCLI"
         - "Microsoft.Azure.FunctionsCoreTools"
     personal:
       winget:
         - "GlennDelahoy.SnappyDriverInstallerOrigin"
-        - "Backblaze"
         - "AgileBits.1Password"
         - "Bambulab.Bambustudio"
         - "Anki.Anki"
@@ -141,19 +135,17 @@ packages:
         - "PaprikaApp.Paprika.3"
         - "dokan-dev.Dokany"
         - "JTKsoftware.JoyToKey"
-        - "OpenSCAD"
+        - "OpenSCAD.OpenSCAD"
         - "Playnite.Playnite"
         - "GIMP.GIMP"
         - "Dropbox.Dropbox"
-        - "Bambulab.Bambustudio"
         - "Valve.Steam"
         - "Anysphere.Cursor"
         - "Cryptomator.Cryptomator"
         - "GuinpinSoft.MakeMKV"
-        - "Cloudflare.cloudflare"
         - "Anaconda.Anaconda3"
         - "OBSProject.OBSStudio"
-        - "ImageOptim.GifSki"
+        - "ImageOptim.gifski"
         - "Obsidian.Obsidian"
         - "RustemMussabekov.Raindrop"
         - "Icons8.Lunacy"
@@ -167,23 +159,24 @@ packages:
       winget:
         - "Git.Git"
         - "jqlang.jq"
-        - "ScooterSoftware.BeyondCompare4"
+        - "ScooterSoftware.BeyondCompare.4"
         - "CPUID.CPU-Z"
         - "StephanDilly.gitui"
         - "GitHub.GitHubDesktop"
         - "Microsoft.VisualStudioCode"
         - "Microsoft.VisualStudioCode.CLI"
         - "Mozilla.Firefox"
-        - "Microsoft.SQLServerManagementStudio"
+        - "Microsoft.SQLServerManagementStudio.22"
         - "Telerik.Fiddler.Classic"
         - "ImageMagick.ImageMagick"
         - "Postman.Postman"
         - "VideoLAN.VLC"
         - "WinDirStat.WinDirStat"
         - "SublimeHQ.SublimeText.4"
-        - "DevToys"
         - "Microsoft.PowerToys"
         - "Schniz.fnm"
+      msstore:
+        - "9PGCV4V3BK4W"
   npm:
     work:
       - "azurite"
@@ -215,6 +208,6 @@ packages:
         url: "https://github.com/emadda/hot-notes"
         description: "Hot Notes"
     windows:
-      - name: "PowerToys"
-        url: "https://github.com/microsoft/PowerToys/releases/latest"
-        description: "Windows system utilities"
+      - name: "Backblaze"
+        url: "https://www.backblaze.com/cloud-backup/personal"
+        description: "Backblaze"
