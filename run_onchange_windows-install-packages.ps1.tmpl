@@ -1,13 +1,16 @@
 {{ if eq .chezmoi.os "windows" -}}
 {{ range .packages.windows.shared.winget -}}
-winget install {{ . | quote }}
+winget install --id {{ . | quote }} -e --source winget --accept-package-agreements --accept-source-agreements
+{{ end -}}
+{{ range .packages.windows.shared.msstore -}}
+winget install --id {{ . | quote }} -e --source msstore --accept-package-agreements --accept-source-agreements
 {{ end -}}
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 fnm install --lts
 fnm use lts-latest
 {{- if eq .type "work" }}
 {{ range .packages.windows.work.winget -}}
-winget install {{ . | quote }}
+winget install --id {{ . | quote }} -e --source winget --accept-package-agreements --accept-source-agreements
 {{ end -}}
 {{ range .packages.npm.work -}}
 npm install -g {{ . | quote }}
@@ -15,7 +18,7 @@ npm install -g {{ . | quote }}
 {{- end }}
 {{- if eq .type "personal" }}
 {{ range .packages.windows.personal.winget -}}
-winget install {{ . | quote }}
+winget install --id {{ . | quote }} -e --source winget --accept-package-agreements --accept-source-agreements
 {{ end -}}
 {{- end }}
 {{ end -}}
