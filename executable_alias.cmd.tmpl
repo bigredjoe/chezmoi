@@ -13,13 +13,3 @@ if not defined FNM_AUTORUN_GUARD (
     set "FNM_AUTORUN_GUARD=AutorunGuard"
     FOR /f "tokens=*" %%z IN ('fnm env --use-on-cd') DO CALL %%z
 )
-
-{{- if eq .type "work" }}
-{{- if hasKey . "workDirs" }}
-{{- with index .workDirs "heavyjob" }}
-DOSKEY hj=cd %USERPROFILE%\{{ . }}
-DOSKEY hjw=cd %USERPROFILE%\{{ . }}\Web
-DOSKEY hjww=cd %USERPROFILE%\{{ . }}\Web\JobManager.Web
-{{- end }}
-{{- end }}
-{{- end }}
