@@ -1,0 +1,4 @@
+setenv.sh
+{{ if eq .chezmoi.os "darwin" -}}
+Library/LaunchAgents/com.user.setenv.plist
+{{ end -}}
