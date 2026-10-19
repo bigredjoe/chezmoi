@@ -87,6 +87,7 @@ packages:
         - "outfox"
         - "logos"
         - "moonlight"
+        - "syncthing-app"
       mas:
         - 1569813296 # 1Password for Safari
         - 411643860 # "DaisyDisk"
@@ -150,6 +151,7 @@ packages:
         - "JonatanHeyman.Heynote"
         - "voidtools.Everything"
         - "WeMod.WeMod"
+        - "GermanCoding.SyncTrayzor"
     shared:
       winget:
         - "Git.Git"
