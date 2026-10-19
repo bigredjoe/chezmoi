@@ -2,14 +2,13 @@
 # It will be copied to ~/.config/chezmoi/chezmoi.toml if it doesn't exist
 
 [data]
-    name = "{{ promptString "What is your full name" }}"
-    email = "{{ promptString "What is your email" }}"
-    type = "{{ promptString "What type of machine is this (work/personal)" }}"
+    name = "{{ promptStringOnce . "name" "What is your full name" }}"
+    email = "{{ promptStringOnce . "email" "What is your email" }}"
+    type = "{{ promptStringOnce . "type" "What type of machine is this (work/personal)" }}"
     isWorkMac = {{ promptBoolOnce . "isWorkMac" "Is this the work Mac" }}
-    powershell_profile_path = "{{ env "POWERSHELL_PROFILE_PATH" }}"
 
 [git]
-    autoCommit = true
+    autoCommit = false
     autoPush = false
 
 [edit]
@@ -19,6 +18,3 @@
 [merge]
     command = "code"
     args = ["--wait", "--diff", "{{ "{{ .Destination }}" }}", "{{ "{{ .Source }}" }}", "{{ "{{ .Target }}" }}"] 
-
-[scriptEnv]
-    POWERSHELL_PROFILE_PATH = 'true' 
