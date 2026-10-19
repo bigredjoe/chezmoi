@@ -44,16 +44,6 @@ mas install {{ . | quote }}
 {{ end -}}
 
 
-# Initialize conda (installed by brew bundle above)
-# Try the standard Homebrew path first, then fall back to system PATH
-if [ -f "/opt/homebrew/anaconda3/bin/conda" ]; then
-    /opt/homebrew/anaconda3/bin/conda init zsh
-elif command -v conda >/dev/null 2>&1; then
-    conda init zsh
-else
-    echo "Warning: conda not found. Make sure anaconda cask is installed."
-fi
-
 # Initialize rbenv (installed by brew bundle above)
 # Try the standard Homebrew path first, then fall back to system PATH
 if [ -f "/opt/homebrew/bin/rbenv" ]; then
@@ -77,12 +67,12 @@ if [ -f "/opt/homebrew/bin/rbenv" ]; then
     if gcc --version >/dev/null 2>&1; then
         # Try to install a recent Ruby version (3.3.9 is more stable on newer macOS)
         echo "Installing Ruby 3.3.9 (more compatible with newer macOS)..."
-        if /opt/homebrew/bin/rbenv install 3.3.9; then
+        if /opt/homebrew/bin/rbenv install -s 3.3.9; then
             /opt/homebrew/bin/rbenv global 3.3.9
             echo "Ruby 3.3.9 installed successfully"
         else
             echo "Failed to install Ruby 3.3.9, trying Ruby 3.2.2..."
-            if /opt/homebrew/bin/rbenv install 3.2.2; then
+            if /opt/homebrew/bin/rbenv install -s 3.2.2; then
                 /opt/homebrew/bin/rbenv global 3.2.2
                 echo "Ruby 3.2.2 installed successfully"
             else
@@ -114,12 +104,12 @@ elif command -v rbenv >/dev/null 2>&1; then
     if gcc --version >/dev/null 2>&1; then
         # Try to install a recent Ruby version
         echo "Installing Ruby 3.3.9 (more compatible with newer macOS)..."
-        if rbenv install 3.3.9; then
+        if rbenv install -s 3.3.9; then
             rbenv global 3.3.9
             echo "Ruby 3.3.9 installed successfully"
         else
             echo "Failed to install Ruby 3.3.9, trying Ruby 3.2.2..."
-            if rbenv install 3.2.2; then
+            if rbenv install -s 3.2.2; then
                 rbenv global 3.2.2
                 echo "Ruby 3.2.2 installed successfully"
             else
@@ -146,11 +136,6 @@ function install_dotnet () {
         if test ! $(dotnet-format)
         then
             dotnet tool update -g dotnet-format
-        fi
-        # Trusting dotnet dev cert
-        if test $(dotnet dev-certs https)
-        then
-            dotnet dev-certs https --trust
         fi
     fi
 }
