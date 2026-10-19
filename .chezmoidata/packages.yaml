@@ -31,6 +31,7 @@ packages:
         - "handy"
         - "dotnet-sdk"
         - "iterm2"
+        - "ghostty"
         - "postman"
         - "visual-studio-code"
         - "github"
@@ -170,6 +171,7 @@ packages:
         - "SublimeHQ.SublimeText.4"
         - "Microsoft.PowerToys"
         - "Schniz.fnm"
+        - "agavra.tuicr"
       msstore:
         - "9PGCV4V3BK4W"
   npm:
