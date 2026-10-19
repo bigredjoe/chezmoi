@@ -26,3 +26,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
+
+export EDITOR="zed"
+export VISUAL="zed"

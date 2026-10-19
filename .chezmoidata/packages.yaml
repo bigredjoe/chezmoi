@@ -7,7 +7,6 @@ packages:
         - "gitui"
         - "ffmpeg"
         - "rbenv"
-        - "leader-key"
         - "bat"
         - "jo"
         - "herdr"
@@ -19,7 +18,6 @@ packages:
       casks:
         - "angry-ip-scanner"
         - "localsend"
-        - "jordanbaird-ice"
         - "llamabarn"
         - "proxyman"
         - "beyond-compare"
@@ -80,7 +78,7 @@ packages:
         - "altserver"
         - "bambu-studio"
         - "dropbox"
-        - "qlvideo"
+        - "quicklook-video"
         - "appcleaner"
         - "mullvad-browser"
         - "accordance"
@@ -106,9 +104,6 @@ packages:
         - 905384638 # FileBot
         - 6448106860 # Private LLM
         - 1622835804 # Kagi for Safari
-        - 824171161 # "Affinity Designer"
-        - 824183456 # "Affinity Photo"
-        - 881418622 # "Affinity Publisher"
         - 409907375 # Apple Remote Desktop
         - 402383384 # "Base"
         - 1568395334 # "Collections Database"
